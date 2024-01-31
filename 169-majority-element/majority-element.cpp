@@ -19,13 +19,15 @@ public:
         //     }
         // }
         // return res;
-        int candidate, count = 0;
-    for (int num : nums) {
-        if (count == 0) {
-            candidate = num;
-        }
-        count += (num == candidate) ? 1 : -1;
-    }
-    return candidate;
+    //     int candidate, count = 0;
+    // for (int num : nums) {
+    //     if (count == 0) {
+    //         candidate = num;
+    //     }
+    //     count += (num == candidate) ? 1 : -1;
+    // }
+    // return candidate;
+        sort(nums.begin(),nums.end());
+        return nums[nums.size()/2];
     }
 };
