@@ -18,10 +18,16 @@ public:
     
     bool remove(int val) {
         if(mp.find(val) == mp.end())return false;
-        int x = arr.back();
-        arr[mp[val]] = x;
+        // int x = arr.back();
+        // arr[mp[val]] = x;
+        // arr.pop_back();
+        // mp[x] = mp[val];
+        // mp.erase(val);
+        // i--;
+        int index = mp[val];
+        arr[index] = arr.back();
         arr.pop_back();
-        mp[x] = mp[val];
+        mp[arr[index]] = index;
         mp.erase(val);
         i--;
         return true;
