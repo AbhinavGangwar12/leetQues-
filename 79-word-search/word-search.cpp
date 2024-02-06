@@ -1,6 +1,6 @@
 class Solution {
     private:
-       bool helper(vector<vector<char>>& board, string word,int x,int y,int k,int row,int col){
+       bool helper(vector<vector<char>>& board, string &word,int x,int y,int k,int row,int col){
            if(k >= word.size())return true;
            if(word.size() == 1 && word[k] == board[x][y])return true;
            if(x<0 || x>=row || y<0 || y>=col || board[x][y] == '#' || word[k] != board[x][y])return false;
