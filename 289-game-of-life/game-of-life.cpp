@@ -20,7 +20,8 @@ public:
     void gameOfLife(vector<vector<int>>& board) {
         int m = board.size();
         int n = board[0].size();
-        vector<vector<int>> temp(m, vector<int>(n, 0));
+        vector<vector<int>> temp = board;
+        // vector<vector<int>> temp(m, vector<int>(n, 0));
         // for(int i=0;i<m;i++){
         //     for(int j=0;j<n;j++){
         //         temp[i][j] = 0;
@@ -28,13 +29,13 @@ public:
         // }
         for(int i=0;i<m;i++){
             for(int j = 0;j < n;j++){
-                temp[i][j] = helper(board,i,j,m,n);
+                board[i][j] = helper(temp,i,j,m,n);
             }
         }
-        for(int i=0;i<m;i++){
-            for(int j=0;j<n;j++){
-                board[i][j] = temp[i][j];
-            }
-        }
+        // for(int i=0;i<m;i++){
+        //     for(int j=0;j<n;j++){
+        //         board[i][j] = temp[i][j];
+        //     }
+        // }
     }
 };
