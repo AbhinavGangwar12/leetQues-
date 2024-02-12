@@ -15,13 +15,13 @@ public:
         //     }
         // }
         // return maxi;
-        int ans = 0,size = cardPoints.size();
+        int ans = 0;
         for(int i=0;i<k;i++){
             ans+=cardPoints[i];
         }
         int curr = ans;
         for(int i=0;i<k;i++){
-            curr = curr - cardPoints[k-i-1] + cardPoints[size-i-1];
+            curr = curr - cardPoints[k-i-1] + cardPoints[cardPoints.size()-i-1];
             ans = max(ans,curr);
         }
         return ans;
