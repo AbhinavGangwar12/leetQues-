@@ -1,6 +1,6 @@
 class Solution {
     private:
-        bool helper(vector<string>& words,int index){
+        bool helper(vector<string>& words,int& index){
             string temp = words[index];
             int i=0,j = temp.size()-1;
             while(i<=j){
