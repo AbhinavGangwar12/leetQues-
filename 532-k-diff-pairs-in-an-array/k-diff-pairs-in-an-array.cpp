@@ -23,9 +23,9 @@ public:
         // }
         // return count;
         map<int,int> f;
-        int n = nums.size();
-        for(int i=0;i<n;i++){
-            f[nums[i]]++;
+        // int n = nums.size();
+        for(auto ele : nums){
+            f[ele]++;
         }
         int count = 0;
         for(auto i : f){
@@ -33,9 +33,9 @@ public:
                 if(i.second>1)count++;
             }
             else{
-                int x = i.first;
-                int r = x - k;
-                if(f.find(r) != f.end()){
+                // int x = i.first;
+                // int r = x - k;
+                if(f.find((i.first - k)) != f.end()){
                     count++;
                 }
             }
