@@ -1,7 +1,6 @@
 class Solution {
 public:
     int firstMissingPositive(vector<int>& nums) {
-        // int x = nums.size();
         vector<bool> b(nums.size()+1);
         for(auto i : nums){
             if(i>0 and i<=nums.size()){
@@ -12,5 +11,17 @@ public:
             if(b[i] == false)return i;
         }
         return nums.size()+1;
+        // for(int i=0;i<nums.size();i++){
+        //     if(nums[i]>0 and nums[i]<nums.size()){
+        //         swap(nums[i],nums[nums[i]]);
+        //         nums[i] = INT_MIN;
+        //     }
+        // }
+        // for(int i=0;i<nums.size();i++){
+        //     if(nums[i] != INT_MIN){
+        //         return i+1;
+        //     }
+        // }
+        // return nums.size() + 1;
     }
 };
