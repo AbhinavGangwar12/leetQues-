@@ -38,15 +38,15 @@ bool helper(vector<string> grid,int curr_column, int curr_row,int size){
     return true;
 }
 
-void foo(vector<string> &grid,int column,int row,int size,vector<vector<string>> &ans){
+void foo(vector<string> &grid,int row,int size,vector<vector<string>> &ans){
     if(row >= size){
         ans.push_back(grid);
         return;
     }
     for(int x = 0;x<size;x++){
-        if(helper(grid,column+x,row,size)){
+        if(helper(grid,x,row,size)){
             grid[row][x] = 'Q';
-            foo(grid,0,row+1,size,ans);
+            foo(grid,row+1,size,ans);
             grid[row][x] = '.';
         }
     }
@@ -56,7 +56,7 @@ public:
     vector<vector<string>> solveNQueens(int n) {
          vector<string> grid(n,string(n,'.'));
         vector<vector<string>> ans;
-        foo(grid,0,0,n,ans);
+        foo(grid,0,n,ans);
         return ans;
     }
 };
