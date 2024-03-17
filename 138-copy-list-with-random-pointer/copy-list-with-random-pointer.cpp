@@ -29,6 +29,36 @@ class Solution {
         }
     }
 public:
+    // Node* copyRandomList(Node* head) {
+
+    //     Node* chead = NULL;
+    //     Node* ctail = NULL;
+        
+    //     Node* temp = head;
+    //     while(temp){
+    //         insertNode(chead,ctail,temp->val);
+    //         temp = temp->next;
+    //     }
+
+    //     unordered_map<Node*,Node*> old_new;
+
+    //     Node* original_node = head;
+    //     Node* clone_node = chead;
+    //     while ((original_node) and  (clone_node)){
+    //         old_new[original_node] = clone_node;
+    //         original_node = original_node -> next;
+    //         clone_node = clone_node -> next;
+    //     }
+
+    //     original_node = head;
+    //     clone_node = chead;
+    //     while((clone_node)){
+    //         clone_node ->random = old_new[original_node->random];
+    //         original_node = original_node -> next;
+    //         clone_node = clone_node -> next;
+    //     }
+    //     return chead;    
+    // }
     Node* copyRandomList(Node* head) {
 
         Node* chead = NULL;
@@ -39,24 +69,39 @@ public:
             insertNode(chead,ctail,temp->val);
             temp = temp->next;
         }
+        // making changes in the original and new list
 
-        unordered_map<Node*,Node*> old_new;
+        Node* onode = head;
+        Node* cnode = chead;
+        while(onode and cnode){
+            Node* nxt = onode->next;
+            onode->next = cnode;
+            onode = nxt;
 
-        Node* original_node = head;
-        Node* clone_node = chead;
-        while ((original_node) and  (clone_node)){
-            old_new[original_node] = clone_node;
-            original_node = original_node -> next;
-            clone_node = clone_node -> next;
+            nxt = cnode->next;
+            cnode->next = onode;
+            cnode = nxt;
         }
 
-        original_node = head;
-        clone_node = chead;
-        while((clone_node)){
-            clone_node ->random = old_new[original_node->random];
-            original_node = original_node -> next;
-            clone_node = clone_node -> next;
+        // copying the random pointers
+
+        temp = head;
+        while(temp){
+            temp->next->random = temp->random ? temp->random->next : temp->random;
+            temp = temp->next->next;
         }
-        return chead;    
+
+        // separating the linked lists
+
+        onode = head;
+        cnode = chead;
+        while(onode and cnode){
+            onode->next = cnode->next;
+            onode = onode->next;
+            if(onode) cnode->next = onode->next;
+            cnode = cnode->next;
+        }
+
+        return chead;
     }
 };
