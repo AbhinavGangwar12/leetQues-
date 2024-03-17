@@ -38,7 +38,7 @@ public:
                 temp = temp->next;
             }
         }
-        head = rev(head);
+        // head = rev(head);
         return ans;
     }
 };
