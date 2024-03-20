@@ -28,7 +28,6 @@ public:
         while(small_curr){
             if((large_prev == NULL) and ( small_curr->val < x )){
                 small_prev->next = small_curr->next;
-                // small_prev = small_prev->next;
                 small_curr->next = large_curr;
                 head = small_curr;
                 large_prev = small_curr;
@@ -37,7 +36,6 @@ public:
             }
             else if(small_curr->val < x){
                 small_prev->next = small_curr->next;
-                // small_prev = small_prev->next;
                 large_prev->next = small_curr;
                 small_curr->next = large_curr;
                 large_prev = small_curr;
