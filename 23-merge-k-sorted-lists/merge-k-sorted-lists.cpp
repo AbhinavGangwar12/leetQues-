@@ -13,10 +13,10 @@ class Solution {
         // ListNode* merge(ListNode* &list1,ListNode* &list2){
         //     if(list1 == NULL)return list2;
         //     if(list2 == NULL)return list2;
-        //     // if(list1->next == NULL){
-        //     //     list1->next = list2;
-        //     //     return list1;
-        //     // }
+        //     if(list1->next == NULL){
+        //         list1->next = list2;
+        //         return list1;
+        //     }
             
         //     ListNode* low = list1;
         //     ListNode* high = list1->next;
@@ -64,7 +64,12 @@ class Solution {
             int mid = low + (high - low)/2;
             ListNode* a = solve(head,low,mid);
             ListNode* b = solve(head,mid+1,high);
-            // ListNode* result = a->val < b->val ? merge(a,b) : merge(b,a);
+            // if((a and b)){
+            //     if(a->val < b->val)return merge(a,b);
+            //     else return merge(b,a);
+            // }
+            // else return merge(a,b);
+            
             return merge(a,b);
         }
 public:
