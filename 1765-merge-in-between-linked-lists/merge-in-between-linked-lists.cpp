@@ -11,7 +11,6 @@
 class Solution {
     private:
         ListNode* pointer1(ListNode* head,int num){
-            if(head == NULL)return NULL;
             ListNode* temp = head;
             for(int i=0;i<num-1 and temp;i++){
                 temp = temp->next;
@@ -19,7 +18,6 @@ class Solution {
             return temp;
         }
         ListNode* pointer2(ListNode* head,int num){
-            if(head == NULL)return NULL;
             ListNode* temp = head;
             for(int i=0;i<=num and temp;i++){
                 temp = temp->next;
