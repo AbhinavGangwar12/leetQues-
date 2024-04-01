@@ -26,14 +26,11 @@ public:
         while(curr){
             if(curr->val == val){
                 if(prev == NULL){
-                    // ListNode* temp = curr;
                     curr = curr->next;
                     head = curr;
-                    // delete temp;
                 }
                 else {
                     prev->next = curr->next;
-                    // delete curr;
                     curr = prev->next;
                 }
             }
